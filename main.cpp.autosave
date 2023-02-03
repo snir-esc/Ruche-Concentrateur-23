@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
     Traitement traitement;
     EnvoiConfiguration configurations;
     Configuration c;
-    c.setParametre(1);
+    c.setParametre(HEURE);                           //
     configurations.ajouterConfiguration(200,c);  //200 est un sous-sytème
-    c.setParametre(2);
+    c.setParametre(VEILLE);
     QByteArray v;
     v.append((char)0);
     v.append(60);

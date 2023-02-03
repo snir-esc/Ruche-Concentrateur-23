@@ -3,7 +3,7 @@
 
 Traitement::Traitement(QObject *parent) : QObject(parent)
 {
-    QHostAddress ad("192.168.1.100");
+    QHostAddress ad("192.168.61.231");
     mSimCom.setBrokerMQTTAdresse(ad);
     mSimCom.setBrokerMQTTPort(1883);
     mSimCom.init();

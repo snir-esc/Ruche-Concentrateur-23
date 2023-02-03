@@ -37,7 +37,7 @@ HEADERS += \
     moquisttoMqtt.h \
     protoruche.h \
     simcom7600.h \
-    traitement.h
+    traitement.h \
 
 RESOURCES +=
 

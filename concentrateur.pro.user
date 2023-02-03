@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.12.4, 2023-01-26T10:13:41. -->
+<!-- Written by QtCreator 4.12.4, 2023-01-30T14:18:58. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -340,9 +340,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">1</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">concentrateur (on Raspberry Pi3)</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinuxRunConfiguration:/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev/concentrateur.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev/concentrateur.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">concentrateur (on Raspberry Pi3)2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinuxRunConfiguration:/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/concentrateur.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/concentrateur.pro</value>
     <value type="int" key="RemoteLinux.EnvironmentAspect.Version">1</value>
     <value type="QString" key="RemoteLinux.RunConfig.AlternateRemoteExecutable"></value>
     <value type="bool" key="RemoteLinux.RunConfig.UseAlternateRemoteExecutable">false</value>

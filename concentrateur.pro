@@ -24,7 +24,8 @@ SOURCES += \
         moquisttoMqtt.cpp \
         protoruche.cpp \
         simcom7600.cpp \
-        traitement.cpp
+        traitement.cpp \
+        wittypi.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -37,7 +38,8 @@ HEADERS += \
     moquisttoMqtt.h \
     protoruche.h \
     simcom7600.h \
-    traitement.h \
+    traitement.h \ \
+    wittypi.h
 
 RESOURCES +=
 

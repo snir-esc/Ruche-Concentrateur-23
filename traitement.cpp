@@ -78,6 +78,9 @@ void Traitement::traiterMesure(Mesure m)
      case 21:
          codeCapteur="I8B";  //  Intercadre
          break;
+     case 22:
+         codeCapteur="BNO"; // Batterie nano-ordinateur ( concentrateur )
+         break;
      default:
          codeCapteur="ERR";
          break;

@@ -3,6 +3,7 @@
 #include "traitement.h"
 #include "mesure.h"
 #include <QObject>
+#include "wittypi.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,9 +13,10 @@ int main(int argc, char *argv[])
     Traitement traitement;
     EnvoiConfiguration configurations;
     Configuration c;
-    c.setParametre(1);
+    WittyPi witty;
+    c.setParametre(HEURE);                           //
     configurations.ajouterConfiguration(200,c);  //200 est un sous-sytème
-    c.setParametre(2);
+    c.setParametre(VEILLE);
     QByteArray v;
     v.append((char)0);
     v.append(60);
@@ -22,5 +24,8 @@ int main(int argc, char *argv[])
     configurations.ajouterConfiguration(200,c);
     QObject::connect(&serveur, SIGNAL(mesureRecue(Mesure)), &traitement, SLOT(traiterMesure(Mesure)));
     QObject::connect(&serveur, SIGNAL(configurationDemandee(int,Configuration &)), &configurations, SLOT(fournirConfiguration(int, Configuration &)));
+    QObject::connect(&witty, SIGNAL(tensionPret(Mesure)),&traitement,SLOT (traiterMesure(Mesure)));
+
+    witty.getTension();
     return a.exec();
 }

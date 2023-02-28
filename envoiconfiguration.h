@@ -20,7 +20,7 @@ enum parametres {
     /*! \brief ip ( pour le prochain cycle) */
     IP=4,
 
-    /*! \brief // ip concentrateur ( pour le prochain cycle) */
+    /*! \brief ip concentrateur ( pour le prochain cycle) */
     IP_CONCENTRATEUR=5,
 
     SSID=6,

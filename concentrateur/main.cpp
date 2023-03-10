@@ -26,6 +26,6 @@ int main(int argc, char *argv[])
     QObject::connect(&serveur, SIGNAL(configurationDemandee(int,Configuration &)), &configurations, SLOT(fournirConfiguration(int, Configuration &)));
     QObject::connect(&witty, SIGNAL(tensionPret(Mesure)),&traitement,SLOT (traiterMesure(Mesure)));
 
-    witty.getTension();
+    witty.MesureTension();
     return a.exec();
 }

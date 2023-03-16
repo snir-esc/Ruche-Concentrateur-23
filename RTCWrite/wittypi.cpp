@@ -193,3 +193,37 @@ void WittyPi::clear_shutdown_time(){
 }
 
 
+
+vector<int> WittyPi::ToUtc(int s,int m,int h, int d){
+
+    QDate Date;
+    QTime time(h,m,s);
+    QDateTime DT;
+    vector<int> vecteur;
+
+    int year = QDate::currentDate().year();
+    int month = QDate::currentDate().month();
+    Date.setDate(year,month,d);
+
+
+
+    DT.setDate(Date);
+    DT.setTime(time);
+   qint64 MSecfromepoch = DT.toMSecsSinceEpoch();                           //passage en epoch
+    QDateTime dtepoch = QDateTime::fromMSecsSinceEpoch(MSecfromepoch);      // depuis le temps en epoch passage en DateTime
+    dtepoch = dtepoch.toUTC();                                              // passage en UTC
+
+    time = dtepoch.time();
+    Date = dtepoch.date();
+
+    qDebug()<<dtepoch.time();
+    qDebug()<<dtepoch.date();
+
+    vecteur.push_back(time.msec()/1000);
+    vecteur.push_back(time.minute());
+    vecteur.push_back(time.hour());
+    vecteur.push_back(Date.day());
+    return vecteur;
+}
+
+

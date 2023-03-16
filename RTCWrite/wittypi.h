@@ -4,7 +4,11 @@
 #include <QProcess>
 #include <QDebug>
 #include <QString>
+#include <QDateTime>
+#include <QDate>
+#include <iostream>
 
+using namespace std;
 
 
 class WittyPi : public QObject
@@ -18,6 +22,7 @@ public:
     void clear_startup_time();
     void set_shutdown_time(int m,int h, int d);
     void clear_shutdown_time();
+    vector<int> ToUtc(int s,int m,int h, int d);
 
 };
 

@@ -10,6 +10,10 @@
 
 using namespace std;
 
+enum wildcard{
+     wildcard = 128,
+};
+
 
 class WittyPi : public QObject
 {

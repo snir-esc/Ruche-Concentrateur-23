@@ -5,7 +5,7 @@
 #include <QHostAddress>
 #include <QSerialPort>
 
-#define EMULATION
+//#define EMULATION
 
 #ifdef EMULATION
 #include "moquisttoMqtt.h"
@@ -17,7 +17,8 @@ class SimCom7600 : public QObject
 public:
     explicit SimCom7600(QObject *parent = nullptr);
 
-    void init();
+    bool init();
+    void close();
     void envoyerSMS(QString destinataire, QString message);
     void publierMQTT(QByteArray rubrique, QByteArray message);
 
@@ -33,6 +34,13 @@ public:
     int brokerMQTTPort() const;
     void setBrokerMQTTPort(int newBrokerMQTTPort);
 
+private:
+    void envoieCommande(QString cmd);
+    int verifieReponse(QStringList reponsesAttendues, int timeout=100);
+    int verifieReponse(QString reponsesAttendues, int timeout=100);
+    bool attendPrompt(QString prompt, int timeout=100);
+
+public:
 signals:
 
 private:

@@ -7,8 +7,8 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
+  //  QCoreApplication a(argc, argv);
+/*
     ProtoRuche serveur;
     Traitement traitement;
     EnvoiConfiguration configurations;
@@ -28,4 +28,22 @@ int main(int argc, char *argv[])
 
     witty.MesureTension();
     return a.exec();
+    */
+
+    QCoreApplication a(argc, argv);
+
+        QString alerte("Essai de message");
+        SimCom7600 simCom;
+
+        QHostAddress brocker("51.75.140.204");
+        simCom.setBrokerMQTTAdresse(brocker);
+        simCom.setBrokerMQTTPort(1883);
+        simCom.setCMNET("free");
+        simCom.setPIN("2658");
+        if (simCom.init()) {
+            simCom.envoyerSMS("0661720601",alerte);
+            //simCom.publierMQTT("/test","messageTest");
+        }
+        simCom.close();
+        return a.exec();
 }

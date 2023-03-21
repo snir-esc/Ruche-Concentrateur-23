@@ -8,17 +8,24 @@ WittyPi::WittyPi(QObject *parent) : QObject(parent)
 void WittyPi::set_startup_time(int s,int m ,int h, int d){   // L'écriture se fait au format BCD Donc chaque quartet 0-9
 
     vector<int> UTCValeurs = ToUtc(s,m,h,d);                // parti de traiment de l'entrée pour les WILDCARD
-    if((h==128)&&(d==128)){
-            UTCValeurs = ToUtc(0,m,15,15);
-            m = UTCValeurs[1] ; h = 128; d = 128;
 
-   }else if(d == 128){
+    if((h==128)&&(d==128))                                    //je rentre une valeur quand même car pour la convertion en UTC il faut une valeur correcte
+    {
+        UTCValeurs = ToUtc(0,m,15,15);
+        m = UTCValeurs[1] ; h = 128; d = 128;
+    }
+    else if(d == 128)
+    {
         UTCValeurs = ToUtc(0,m,h,15);
         m = UTCValeurs[1] ; h = 128; d = 128;
-    }else if (h ==128){
+    }
+    else if (h ==128)
+    {
         UTCValeurs = ToUtc(0,m,15,d);
         m = UTCValeurs[1] ; h = 128; d = UTCValeurs[3];
-    }else{
+    }
+    else
+    {
         UTCValeurs = ToUtc(0,m,h,d);
         m = UTCValeurs[1] ; h = UTCValeurs[2]; d = UTCValeurs[3];
     }
@@ -133,17 +140,24 @@ void WittyPi::clear_startup_time(){
 
 void WittyPi::set_shutdown_time(int m, int h,int d){
     vector<int> UTCValeurs;
-    if((h==128)&&(d==128)){
-            UTCValeurs = ToUtc(0,m,15,15);
-            m = UTCValeurs[1] ; h = 128; d = 128;
 
-   }else if(d == 128){
+    if((h==128)&&(d==128))
+    {
+        UTCValeurs = ToUtc(0,m,15,15);              //je rentre une valeur quand même car pour la convertion en UTC il faut une valeur correcte
+        m = UTCValeurs[1] ; h = 128; d = 128;
+    }
+    else if(d == 128)
+    {
         UTCValeurs = ToUtc(0,m,h,15);
         m = UTCValeurs[1] ; h = 128; d = 128;
-    }else if (h ==128){
+    }
+    else if (h ==128)
+    {
         UTCValeurs = ToUtc(0,m,15,d);
         m = UTCValeurs[1] ; h = 128; d = UTCValeurs[3];
-    }else{
+    }
+    else
+    {
         UTCValeurs = ToUtc(0,m,h,d);
         m = UTCValeurs[1] ; h = UTCValeurs[2]; d = UTCValeurs[3];
     }
@@ -223,6 +237,37 @@ void WittyPi::clear_shutdown_time(){
     mProcess.start("i2cset", (QStringList){"-y","1","0x68","0x0D","0x00"});
     mProcess.waitForFinished();
 
+}
+
+
+
+
+void WittyPi::set_next_startup_in(int m, int h){
+
+    QDateTime DT;
+    QTime Time;
+    QDate Date;
+    DT = QDateTime::currentDateTime();
+    DT = DT.addSecs(((m*60)+(h*3600)));
+
+    Time = DT.time();
+    Date = DT.date();
+
+    set_startup_time(Time.msec()/1000,Time.minute(),Time.hour(),Date.day());
+}
+
+void WittyPi::set_next_shutdown_in(int m, int h){
+
+    QDateTime DT;
+    QTime Time;
+    QDate Date;
+    DT = QDateTime::currentDateTime();
+    DT = DT.addSecs(((m*60)+(h*3600)));
+
+    Time = DT.time();
+    Date = DT.date();
+
+    set_shutdown_time(Time.minute(),Time.hour(),Date.day());
 }
 
 

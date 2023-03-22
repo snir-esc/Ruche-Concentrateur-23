@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.12.4, 2023-03-22T10:40:55. -->
+<!-- Written by QtCreator 4.12.4, 2023-03-22T10:56:49. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -81,8 +81,8 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-concentrateur-Raspberry_Pi-Debug</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-concentrateur-Raspberry_Pi-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-EnvoiTension-Raspberry_Pi-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-EnvoiTension-Raspberry_Pi-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -132,14 +132,14 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">2</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-concentrateur-Raspberry_Pi-Release</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-concentrateur-Raspberry_Pi-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-EnvoiTension-Raspberry_Pi-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-EnvoiTension-Raspberry_Pi-Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">QtProjectManager.QMakeBuildStep</value>
       <value type="QString" key="QtProjectManager.QMakeBuildStep.QMakeArguments"></value>
-      <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">false</value>
+      <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">true</value>
       <valuelist type="QVariantList" key="QtProjectManager.QMakeBuildStep.SelectedAbis"/>
      </valuemap>
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
@@ -183,14 +183,14 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-concentrateur-Raspberry_Pi-Profile</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-concentrateur-Raspberry_Pi-Profile</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-EnvoiTension-Raspberry_Pi-Profile</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/build-EnvoiTension-Raspberry_Pi-Profile</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">QtProjectManager.QMakeBuildStep</value>
       <value type="QString" key="QtProjectManager.QMakeBuildStep.QMakeArguments"></value>
-      <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">false</value>
+      <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">true</value>
       <valuelist type="QVariantList" key="QtProjectManager.QMakeBuildStep.SelectedAbis"/>
      </valuemap>
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
@@ -340,9 +340,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">1</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">concentrateur (on Raspberry Pi3)</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinuxRunConfiguration:/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/concentrateur/concentrateur.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/concentrateur/concentrateur.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">EnvoiTension (on Raspberry Pi3)</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinuxRunConfiguration:/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/EnvoiTension/EnvoiTension.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/IR/baudelot/reseau-perso/SN2/Ruche-connectee/concentrateurDev-git/Ruche-Concentrateur-23/EnvoiTension/EnvoiTension.pro</value>
     <value type="int" key="RemoteLinux.EnvironmentAspect.Version">1</value>
     <value type="QString" key="RemoteLinux.RunConfig.AlternateRemoteExecutable"></value>
     <value type="bool" key="RemoteLinux.RunConfig.UseAlternateRemoteExecutable">false</value>

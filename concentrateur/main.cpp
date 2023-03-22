@@ -7,8 +7,8 @@
 
 int main(int argc, char *argv[])
 {
-  //  QCoreApplication a(argc, argv);
-/*
+    QCoreApplication a(argc, argv);
+
     ProtoRuche serveur;
     Traitement traitement;
     EnvoiConfiguration configurations;
@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
 
     witty.MesureTension();
     return a.exec();
-    */
 
+    /*
     QCoreApplication a(argc, argv);
 
         QString alerte("Essai de message");
@@ -46,4 +46,5 @@ int main(int argc, char *argv[])
         }
         simCom.close();
         return a.exec();
+        */
 }

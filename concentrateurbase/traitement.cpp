@@ -3,7 +3,7 @@
 
 Traitement::Traitement(QObject *parent) : QObject(parent)
 {
-    QHostAddress ad("127.0.0.1");
+    QHostAddress ad("192.168.1.100");
     mSimCom.setBrokerMQTTAdresse(ad);
     mSimCom.setBrokerMQTTPort(1883);
     mSimCom.init();
@@ -77,9 +77,6 @@ void Traitement::traiterMesure(Mesure m)
          break;
      case 21:
          codeCapteur="I8B";  //  Intercadre
-         break;
-     case 22:
-         codeCapteur="BNO"; // Batterie nano-ordinateur ( concentrateur )
          break;
      default:
          codeCapteur="ERR";

@@ -1,6 +1,7 @@
 #include "wittypi.h"
 #include <QDebug>
-WittyPi::WittyPi(QObject *parent)
+
+WittyPi::WittyPi(QObject *parent) : QObject(parent)
 {
 
 }
@@ -39,3 +40,24 @@ void WittyPi::MesureTension(){                          // créer un object de t
   emit tensionPret(m);                                  // emet un signal avec l'objet contenant les valeurs nécessaire pour le traitement
 }
 
+
+void WittyPi::Synchronisation(){
+    EnvoiConfiguration configurations;
+    Configuration c;
+
+    QTime Time_startup;
+    QTime Time_current;
+    QDateTime startup = WittyPi::get_startup_time();
+    QDateTime current = QDateTime::currentDateTimeUtc();
+
+    startup=startup.addSecs(60);
+    Time_startup = startup.time();
+    Time_current = current.time();
+
+
+    int SleepSec = Time_current.secsTo(Time_startup);
+
+    qDebug()<<"Durée Deep Sleep :"<<SleepSec;
+
+
+}

@@ -23,13 +23,14 @@ SOURCES += \
         mesure.cpp \
         moquisttoMqtt.cpp \
         protoruche.cpp \
+        rtcwrite.cpp \
         simcom7600.cpp \
         traitement.cpp \
         wittypi.cpp
 
 # Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /home/pi/$${TARGET}/bin
+qnx: target.path = /tmp/concentrateur/bin
+else: unix:!android: target.path = /home/pi/concentrateur/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
@@ -37,6 +38,7 @@ HEADERS += \
     mesure.h \
     moquisttoMqtt.h \
     protoruche.h \
+    rtcwrite.h \
     simcom7600.h \
     traitement.h \ \
     wittypi.h

@@ -1,9 +1,8 @@
 #ifndef WITTYPI_H
 #define WITTYPI_H
-#include <QProcess>
-#include "mesure.h"
 #include <QObject>
-
+#include <QProcess>
+#include <QDebug>
 
 class WittyPi : public QObject
 {
@@ -12,11 +11,8 @@ private:
     QProcess mProcess;
 public:
     WittyPi(QObject *parent = nullptr);
-    void MesureTension();
     float getTension();
 
-signals:
-    void tensionPret(Mesure);
 
 };
 

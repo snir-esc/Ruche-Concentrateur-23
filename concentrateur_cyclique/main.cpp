@@ -7,6 +7,7 @@
 
 int main(int argc, char *argv[])
 {
+
     QCoreApplication a(argc, argv);
 
     ProtoRuche serveur;
@@ -14,20 +15,34 @@ int main(int argc, char *argv[])
     EnvoiConfiguration configurations;
     Configuration c;
     WittyPi witty;
+
     c.setParametre(HEURE);                           //
     configurations.ajouterConfiguration(200,c);  //200 est un sous-sytème
     c.setParametre(VEILLE);
     QByteArray v;
-    v.append((char)0);
+    v.append((char)0);               // car 2 octet pour la durée de veille
     v.append(60);
     c.setValeur(v);
     configurations.ajouterConfiguration(200,c);
+    c.setParametre(255);            // pour indiquer la fin de paramètrage
+    v.clear();
+    c.setValeur(v);                 //0
+    configurations.ajouterConfiguration(200,c);
+    
+    witty.set_next_startup_in(1,0);
+    witty.Synchronisation();
+
     QObject::connect(&serveur, SIGNAL(mesureRecue(Mesure)), &traitement, SLOT(traiterMesure(Mesure)));
     QObject::connect(&serveur, SIGNAL(configurationDemandee(int,Configuration &)), &configurations, SLOT(fournirConfiguration(int, Configuration &)));
     QObject::connect(&witty, SIGNAL(tensionPret(Mesure)),&traitement,SLOT (traiterMesure(Mesure)));
+    
+    
 
-    witty.MesureTension();
+
     return a.exec();
+
+
+
 
     /*
     QCoreApplication a(argc, argv);
@@ -46,5 +61,5 @@ int main(int argc, char *argv[])
         }
         simCom.close();
         return a.exec();
-        */
+    */
 }

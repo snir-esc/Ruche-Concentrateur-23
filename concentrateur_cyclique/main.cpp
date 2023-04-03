@@ -15,25 +15,30 @@ int main(int argc, char *argv[])
     EnvoiConfiguration configurations;
     Configuration c;
     WittyPi witty;
-
-    c.setParametre(HEURE);                           //
-    configurations.ajouterConfiguration(200,c);  //200 est un sous-sytème
-    c.setParametre(VEILLE);
     QByteArray v;
-    v.append((char)0);               // car 2 octet pour la durée de veille
-    v.append(60);
-    c.setValeur(v);
-    configurations.ajouterConfiguration(200,c);
-    c.setParametre(255);            // pour indiquer la fin de paramètrage
-    v.clear();
-    c.setValeur(v);                 //0
-    configurations.ajouterConfiguration(200,c);
-    
-    witty.set_next_startup_in(1,0);
-    witty.Synchronisation();
+
+       c.setParametre(HEURE);
+      configurations.ajouterConfiguration(80,c);  //200 est un sous-sytème
+  //    c.setParametre(VEILLE);
+
+    // v.append((char)0);               // car 2 octet pour la durée de veille
+    //v.append(60);
+    //c.setValeur(v);
+    // configurations.ajouterConfiguration(200,c);
+    //    c.setParametre(255);            // pour indiquer la fin de paramètrage
+    //    v.clear();
+    //    c.setValeur(v);                 //0
+    //    configurations.ajouterConfiguration(200,c);
+
+
+    witty.set_config_addr(configurations);
+    witty.set_next_startup_in(2,0); //prochain redémarrage du concentrateur
 
     QObject::connect(&serveur, SIGNAL(mesureRecue(Mesure)), &traitement, SLOT(traiterMesure(Mesure)));
-    QObject::connect(&serveur, SIGNAL(configurationDemandee(int,Configuration &)), &configurations, SLOT(fournirConfiguration(int, Configuration &)));
+    QObject::connect(&serveur, SIGNAL(configurationDemandee(int,Configuration &)), &witty, SLOT(Synchronisation(int, Configuration &)));
+    QObject::connect(&serveur, SIGNAL(configurationDemandee(int, Configuration &)), &configurations, SLOT(fournirConfiguration(int, Configuration &)));
+
+    //QObject::connect(&serveur, SIGNAL(configurationDemandee(int,Configuration &)), &configurations, SLOT(fournirConfiguration(int, Configuration &)));
     QObject::connect(&witty, SIGNAL(tensionPret(Mesure)),&traitement,SLOT (traiterMesure(Mesure)));
     
     

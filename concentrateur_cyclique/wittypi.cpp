@@ -32,32 +32,46 @@ float WittyPi::getTension(){
 }
 
 void WittyPi::MesureTension(){                          // créer un object de type Mesure pour ensuite effectuer le traitement par la classe Traitement
-  QDateTime DateHeure= DateHeure.currentDateTime();
-  Mesure m;
-  m.setCapteur(22);
-  m.setValeur(getTension());
-  m.setDateHeure(DateHeure);
-  emit tensionPret(m);                                  // emet un signal avec l'objet contenant les valeurs nécessaire pour le traitement
+    QDateTime DateHeure= DateHeure.currentDateTime();
+    Mesure m;
+    m.setCapteur(22);
+    m.setValeur(getTension());
+    m.setDateHeure(DateHeure);
+    emit tensionPret(m);                                  // emet un signal avec l'objet contenant les valeurs nécessaire pour le traitement
+}
+
+void WittyPi::set_config_addr(EnvoiConfiguration &configuration){
+    mConfiguration = &configuration;
 }
 
 
-void WittyPi::Synchronisation(){
-    EnvoiConfiguration configurations;
-    Configuration c;
+void WittyPi::Synchronisation(int noRuche, Configuration &c){
 
-    QTime Time_startup;
-    QTime Time_current;
-    QDateTime startup = WittyPi::get_startup_time();
-    QDateTime current = QDateTime::currentDateTimeUtc();
+    if(!(mNoRucheLastconfig.contains(noRuche))){
+        mNoRucheLastconfig.insert(noRuche,true);
+        QTime Time_startup;
+        QTime Time_current;
+        QDateTime startup = WittyPi::get_startup_time();
+        QDateTime current = QDateTime::currentDateTimeUtc();
 
-    startup=startup.addSecs(60);
-    Time_startup = startup.time();
-    Time_current = current.time();
+        startup=startup.addSecs(60);
+        Time_startup = startup.time();
+        Time_current = current.time();
 
 
-    int SleepSec = Time_current.secsTo(Time_startup);
+        int SleepSec = Time_current.secsTo(Time_startup);
 
-    qDebug()<<"Durée Deep Sleep :"<<SleepSec;
+        qDebug()<<"Durée Deep Sleep :"<<SleepSec<<"s";
 
+        c.setParametre(VEILLE);
+        QByteArray v;
+
+        v.append(SleepSec >> 8);        // pour permettre l'enregistrement sur 2 octets dans le cas où SleepSec > 255
+        v.append(SleepSec & 0x00FF);
+        qDebug()<<"0x"<<v.toHex();
+
+        c.setValeur(v);
+        mConfiguration->ajouterConfiguration(noRuche,c);
+    }
 
 }

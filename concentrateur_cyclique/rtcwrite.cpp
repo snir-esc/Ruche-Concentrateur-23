@@ -323,9 +323,11 @@ QDateTime RTCWrite::get_startup_time(){
     ValeurqByte = mProcess.readAll();
     qString.append(ValeurqByte);
     s=(int)qString.toInt(nullptr,16);
+
     Ds = s >>4;
     s= s & 0b00001111;
     s= s +(Ds*10);
+
     qString.clear();
     ValeurqByte.clear();
 

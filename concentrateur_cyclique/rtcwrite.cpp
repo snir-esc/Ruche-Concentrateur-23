@@ -377,6 +377,7 @@ QDateTime RTCWrite::get_startup_time(){
 
     int year = QDate::currentDate().year();
     int month = QDate::currentDate().month();
+   // qDebug()<<"Debug date avec crontab -> y-m-d h:m:s"<<year<<'-'<<month<<'-'<<d<<" "<<h<<':'<<m<<':'<<s;
     Date.setDate(year,month,d);
     Time.setHMS(h,m,s);
     DT.setDate(Date);

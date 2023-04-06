@@ -49,10 +49,17 @@ void WittyPi::Synchronisation(int noRuche, Configuration &c){
 
     if(!(mNoRucheLastconfig.contains(noRuche))){
         mNoRucheLastconfig.insert(noRuche,true);
+
+
+
+        c.setParametre(HEURE);
+        mConfiguration->ajouterConfiguration(noRuche,c);  //ajout de l'heure dans la synchro
         QTime Time_startup;
         QTime Time_current;
         QDateTime startup = WittyPi::get_startup_time();
+        qDebug()<<startup;
         QDateTime current = QDateTime::currentDateTimeUtc();
+        qDebug()<<current;
 
         startup=startup.addSecs(60);
         Time_startup = startup.time();
@@ -60,8 +67,10 @@ void WittyPi::Synchronisation(int noRuche, Configuration &c){
 
 
         int SleepSec = Time_current.secsTo(Time_startup);
+        SleepSec /= 2;                                      // je divise par 2 car 2 cycle
 
-        qDebug()<<"Durée Deep Sleep :"<<SleepSec<<"s";
+        qDebug()<<"Durée Deep Sleep(par cycle) :"<<SleepSec<<"s";
+        qDebug()<<"Durée Deep Sleep Total: "<<SleepSec*2<<"s";
 
         c.setParametre(VEILLE);
         QByteArray v;
@@ -69,9 +78,9 @@ void WittyPi::Synchronisation(int noRuche, Configuration &c){
         v.append(SleepSec >> 8);        // pour permettre l'enregistrement sur 2 octets dans le cas où SleepSec > 255
         v.append(SleepSec & 0x00FF);
         qDebug()<<"0x"<<v.toHex();
-
         c.setValeur(v);
         mConfiguration->ajouterConfiguration(noRuche,c);
+
     }
 
 }

@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
     WittyPi witty;
     QByteArray v;
 
-       c.setParametre(HEURE);
-      configurations.ajouterConfiguration(80,c);  //200 est un sous-sytème
-  //    c.setParametre(VEILLE);
+    //c.setParametre(HEURE);
+    //configurations.ajouterConfiguration(200,c);  //80 est un sous-sytème
+    //    c.setParametre(VEILLE);
 
     // v.append((char)0);               // car 2 octet pour la durée de veille
     //v.append(60);
@@ -32,7 +32,8 @@ int main(int argc, char *argv[])
 
 
     witty.set_config_addr(configurations);
-    witty.set_next_startup_in(2,0); //prochain redémarrage du concentrateur
+    witty.set_next_startup_in(10,0); //prochain redémarrage du concentrateur
+    witty.set_next_shutdown_in(4,0);
 
     QObject::connect(&serveur, SIGNAL(mesureRecue(Mesure)), &traitement, SLOT(traiterMesure(Mesure)));
     QObject::connect(&serveur, SIGNAL(configurationDemandee(int,Configuration &)), &witty, SLOT(Synchronisation(int, Configuration &)));
@@ -41,7 +42,7 @@ int main(int argc, char *argv[])
     //QObject::connect(&serveur, SIGNAL(configurationDemandee(int,Configuration &)), &configurations, SLOT(fournirConfiguration(int, Configuration &)));
     QObject::connect(&witty, SIGNAL(tensionPret(Mesure)),&traitement,SLOT (traiterMesure(Mesure)));
     
-    
+    witty.MesureTension();
 
 
     return a.exec();

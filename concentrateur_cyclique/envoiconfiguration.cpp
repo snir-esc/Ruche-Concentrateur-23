@@ -1,7 +1,7 @@
 #include "envoiconfiguration.h"
 
 #include <QDateTime>
-
+#include <QDebug>
 Configuration::Configuration() :
     mParametre(255)
 {
@@ -48,6 +48,7 @@ void EnvoiConfiguration::fournirConfiguration(int noRuche, Configuration &c)
             t.push_back( (epoch >>  8) & 0xff);
             t.push_back( (epoch >>  0) & 0xff);
             c.setValeur(t);
+            qDebug()<<epoch<<"s depuis epoch";
         }
     } else {  // marque la fin des envois de configuration
         c.setParametre(255);
